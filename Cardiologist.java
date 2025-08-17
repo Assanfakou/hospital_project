@@ -1,5 +1,5 @@
 class Cardiologist implements Doctor {
-    
+
     private String name;
     private int age;
     private boolean available;
@@ -22,5 +22,6 @@ class Cardiologist implements Doctor {
     {
         return this.available;
     }
+    public void setAvailability(boolean available) { this.available = available; }
 
 }

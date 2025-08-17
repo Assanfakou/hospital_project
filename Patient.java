@@ -18,7 +18,7 @@ class Patient {
     {
         return this.age;
     }
-    public boolean getCode()
+    public int getCode()
     {
         return this.code;
     }

@@ -1,3 +1,5 @@
+
+import java.util.ArrayList;
 class Hospital {
 
     private String name;
@@ -8,9 +10,9 @@ class Hospital {
     public Hospital(String name)
     {
         this.name = name;
-        this.neurosurgeon = new ArrayList<>();
-        this.dietitian = new ArrayList<>();
-        this.cardiologist = new ArrayList<>();
+        this.neurosurgeons = new ArrayList<>();
+        this.dietitians = new ArrayList<>();
+        this.cardiologists = new ArrayList<>();
     }
     public void addDoctor(String name, int age, String dep)
     {

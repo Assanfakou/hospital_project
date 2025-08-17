@@ -22,4 +22,5 @@ class Neurosurgeon implements Doctor {
     {
         return this.available;
     }
+    public void setAvailability(boolean available) { this.available = available; }
 }

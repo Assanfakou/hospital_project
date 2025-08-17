@@ -1,5 +1,5 @@
 class Dietitian implements Doctor {
-    
+
     private String name;
     private int age;
     private boolean available;
@@ -22,4 +22,5 @@ class Dietitian implements Doctor {
     {
         return this.available;
     }
+    public void setAvailability(boolean available) { this.available = available; }
 }
