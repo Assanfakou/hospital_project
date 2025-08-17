@@ -1,59 +1,38 @@
 import java.util.*;
-
 public class Driver {
-
-    public static void printPatient(Patient p)
-    {
-        System.out.println("Patient:-");
-        System.out.println("  Name: " + p.getName());
-        System.out.println("  Age: " + p.getAge());
-        System.out.println("  Code: " + p.getCode());
-    }
-    public static void printDoctor(Cardiologist c) {
-        System.out.println("Cardiologist:-");
-        System.out.println("  Name: " + c.getName());
-        System.out.println("  Age: " + c.getAge());
-        System.out.println("  Available: " + c.getAvailability());
-    }
-
-    public static void printDoctor(Neurosurgeon n) {
-        System.out.println("Neurosurgeon:-");
-        System.out.println("  Name: " + n.getName());
-        System.out.println("  Age: " + n.getAge());
-        System.out.println("  Available: " + n.getAvailability());
-    }
-
-    public static void printDoctor(Dietitian d) {
-        System.out.println("Dietitian:-");
-        System.out.println("  Name: " + d.getName());
-        System.out.println("  Age: " + d.getAge());
-        System.out.println("  Available: " + d.getAvailability());
-    }
-
     public static void main(String[] args) {
-        // Create a hospital
-        Hospital hospital = new Hospital("City Hospital");
+        // Create hospital
+        Hospital hospital = new Hospital("CityCare");
 
-        // Add some doctors
+        // Add doctors
         hospital.addDoctor("Dr. Smith", 45, "cardio");
-        hospital.addDoctor("Dr. Lee", 50, "neuro");
-        hospital.addDoctor("Dr. Kim", 40, "diet");
+        hospital.addDoctor("Dr. Adams", 50, "neuro");
+        hospital.addDoctor("Dr. Rose", 39, "diet");
 
-        // Add a patient
-        Patient patient = new Patient("Alice", 30, 101);
+        // Print hospital details
+        System.out.println("Hospital: " + hospital.getHosName());
+        System.out.println("=== Cardiologists ===");
+        hospital.printAllCardiologists();
 
-        // Print patient info
-        printPatient(patient);
+        System.out.println("=== Neurosurgeons ===");
+        hospital.printAllNeu();
 
-        // Print all doctors info
-        for (Cardiologist c : hospital.getCard()) {
-            printDoctor(c);
-        }
-        for (Neurosurgeon n : hospital.getNeursu()) {
-            printDoctor(n);
-        }
-        for (Dietitian d : hospital.getDiet()) {
-            printDoctor(d);
-        }
+        System.out.println("=== Dietitians ===");
+        hospital.printAllDiet();
+
+        // Book appointments
+        System.out.println("\nBooking Appointments:");
+        hospital.bookAppointement("John Doe", 30, "cardio");
+        hospital.bookAppointement("Jane Doe", 25, "neuro");
+        hospital.bookAppointement("Mike Lee", 40, "diet");
+    }
+
+    // Utility method to print doctor details
+    public static void printDoctor(Doctor d) {
+        System.out.println("Doctor: " + d.getName() + ", Age: " + d.getAge()};
+
+    // Utility method to print patient details
+    public static void printPatient(Patient p) {
+        System.out.println("Patient: " + p.getName() + ", Age: " + p.getAge());
     }
 }

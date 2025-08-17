@@ -3,12 +3,13 @@ class Patient {
     private String name ;
     private int age;
     private int code;
+    private static int lastCode = 0;
 
-    public Patient(String name, int age, int code)
+    public Patient(String name, int age)
     {
         this.name = name;
         this.age = age;
-        this.code = code;
+        this.code = ++lastCode;
     }
     public String getName()
     {

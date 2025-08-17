@@ -32,6 +32,77 @@ class Hospital {
             dietitians.add(diet);
        }
     }
+    public void bookAppointement(String name, int age, String doctype)
+    {
+        Patient newPatient = new Patient(name, age);
+        Doctor assignDoc = null;
+        if (doctype.equals("cardio"))
+        {
+            if (cardiologists.size() == 0)
+            {
+                System.out.println("No cardiologists");
+                return;
+            }
+            int x = (int) (Math.random() * cardiologists.size());
+            assignDoc = cardiologists.get(x);
+        }
+        else if (doctype.equals("neuro"))
+        {
+            if (neurosurgeons.size() == 0)
+            {
+                System.out.println("No Neurosurgens");
+                return ;
+            }
+            int x = (int) (Math.random() * neurosurgeons.size());
+            assignDoc = neurosurgeons.get(x);
+        }
+        else if (doctype.equals("diet"))
+        {
+            if (dietitians.size() == 0)
+            {
+                System.out.println("No dietitians");
+                return ;
+            }
+            int x = (int) (Math.random() * dietitians.size());
+            assignDoc = dietitians.get(x);
+        }
+        else 
+        {
+            System.out.println("Invalide doctype");
+            return ;
+        }
+        System.out.println("Apointement set with Dr" + assignDoc.getName());
+    }
+    public void printAllCardiologists(){
+
+        if (cardiologists.size() == 0) 
+        {
+            System.out.println("No cardiologists are hired");
+            return;
+        }
+        for (Cardiologist c : cardiologists)
+            Driver.printDoctor(c);
+    }
+    public void printAllNeu()
+    {
+        if (neurosurgeons.size() == 0) 
+        {
+            System.out.println("No Neurosurgeons are hired");
+            return;
+        }
+        for (Neurosurgeon n : neurosurgeons)
+            Driver.printDoctor(n);
+    }
+    public void printAllDiet()
+    {
+        if (dietitians.size() == 0) 
+        {
+            System.out.println("No Dietitians are hired");
+            return;
+        }
+        for (Dietitian d : dietitians)
+            Driver.printDoctor(d);
+    }
     public String getHosName()
     {
         return this.name;
@@ -48,5 +119,6 @@ class Hospital {
     {
         return this.cardiologists;
     }
+
 
 }
