@@ -1,7 +1,6 @@
 class Hospital {
 
     private String name;
-
     private ArrayList<Neurosurgeon> neurosurgeons;
     private ArrayList<Dietitian> dietitians;
     private ArrayList<Cardiologist> cardiologists;
@@ -17,8 +16,8 @@ class Hospital {
     {
        if (dep.equals("cardio"))
        {
-            Cardiologist cor = new Cardiologist(name, age);
-            cardiologists.add(cor);
+            Cardiologist card = new Cardiologist(name, age);
+            cardiologists.add(card);
        } 
        else if (dep.equals("neuro"))
        {
@@ -31,5 +30,21 @@ class Hospital {
             dietitians.add(diet);
        }
     }
-    
+    public String getHosName()
+    {
+        return this.name;
+    }
+    public ArrayList<Neurosurgeon> getNeursu()
+    {
+        return this.neurosurgeons;
+    }
+    public ArrayList<Dietitian> getDiet()
+    {
+        return this.dietitians;
+    }
+    public ArrayList<Cardiologist> getCard()
+    {
+        return this.cardiologists;
+    }
+
 }

@@ -1,4 +1,5 @@
 class Patient {
+    
     private String name ;
     private int age;
     private int code;
@@ -9,5 +10,16 @@ class Patient {
         this.age = age;
         this.code = code;
     }
-    
+    public String getName()
+    {
+        return this.name;
+    }
+    public int getAge()
+    {
+        return this.age;
+    }
+    public boolean getCode()
+    {
+        return this.code;
+    }
 }

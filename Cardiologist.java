@@ -1,5 +1,6 @@
 class Cardiologist implements Doctor {
-    private String naem;
+    
+    private String name;
     private int age;
     private boolean available;
 
@@ -9,4 +10,17 @@ class Cardiologist implements Doctor {
         this.age = age;
         this.available = true;
     }
+    public String getName()
+    {
+        return this.name;
+    }
+    public int getAge()
+    {
+        return this.age;
+    }
+    public boolean getAvailability()
+    {
+        return this.available;
+    }
+
 }
