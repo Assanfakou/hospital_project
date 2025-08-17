@@ -1,38 +1,27 @@
-import java.util.*;
-public class Driver {
-    public static void main(String[] args) {
-        // Create hospital
-        Hospital hospital = new Hospital("CityCare");
+import java.util.ArrayList;
 
-        // Add doctors
-        hospital.addDoctor("Dr. Smith", 45, "cardio");
-        hospital.addDoctor("Dr. Adams", 50, "neuro");
-        hospital.addDoctor("Dr. Rose", 39, "diet");
+class Driver
+{
+    public static void main(String args[]) 
+    {
+        /* Create a hospital */
+        Hospital h = new Hospital("Public Care Center");
 
-        // Print hospital details
-        System.out.println("Hospital: " + hospital.getHosName());
-        System.out.println("=== Cardiologists ===");
-        hospital.printAllCardiologists();
+        /* Adding two cardiologists*/
+        h.addDoctor("David", 43, "cardio");
+        h.addDoctor("Linda", 31, "cardio");
 
-        System.out.println("=== Neurosurgeons ===");
-        hospital.printAllNeu();
+        /* Adding two neurosurgeons*/
+        h.addDoctor("Mike", 37, "neuro");
+        h.addDoctor("Katherine", 50, "neuro");
 
-        System.out.println("=== Dietitians ===");
-        hospital.printAllDiet();
+        /* Adding two dietiants*/
+        h.addDoctor("Bob", 29, "diet");
+        h.addDoctor("Chris", 41, "diet");
 
-        // Book appointments
-        System.out.println("\nBooking Appointments:");
-        hospital.bookAppointement("John Doe", 30, "cardio");
-        hospital.bookAppointement("Jane Doe", 25, "neuro");
-        hospital.bookAppointement("Mike Lee", 40, "diet");
-    }
-
-    // Utility method to print doctor details
-    public static void printDoctor(Doctor d) {
-        System.out.println("Doctor: " + d.getName() + ", Age: " + d.getAge()};
-
-    // Utility method to print patient details
-    public static void printPatient(Patient p) {
-        System.out.println("Patient: " + p.getName() + ", Age: " + p.getAge());
+        /* Booking an appointment */
+        h.bookAppointment("Dave", 21, "neurosurgeon");
+        h.bookAppointment("Kim", 19, "cardiologist");
+        h.bookAppointment("Sarah", 27, "dietitian");
     }
 }

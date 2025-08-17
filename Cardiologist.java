@@ -1,27 +1,37 @@
-class Cardiologist implements Doctor {
-
+public class Cardiologist implements Doctor
+{
+    /* Instance variables */
     private String name;
-    private int age;
-    private boolean available;
+    private int age;  
+    private boolean availability;  
 
+    /*Constructor Method*/
     public Cardiologist(String name, int age)
     {
         this.name = name;
         this.age = age;
-        this.available = true;
-    }
+        availability = true;
+    } 
+
+    /* Getters */
     public String getName()
     {
-        return this.name;
+        return name;
     }
+
     public int getAge()
     {
-        return this.age;
+        return age;
     }
+
     public boolean getAvailability()
     {
-        return this.available;
-    }
-    public void setAvailability(boolean available) { this.available = available; }
+        return availability;
+    } 
 
+    /* Overriding toString method */
+    public String toString()
+    {
+        return ("Cardiologist:-\n\tName: "+ name+ "\n\tAge: "+age+"\n\tAvailable:"+availability);
+    }
 }

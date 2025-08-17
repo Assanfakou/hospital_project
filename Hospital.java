@@ -1,124 +1,121 @@
-
 import java.util.ArrayList;
-class Hospital {
 
+public class Hospital
+{
+    /* Instance variables */
     private String name;
+
+    private ArrayList<Cardiologist> cardiologists;
     private ArrayList<Neurosurgeon> neurosurgeons;
     private ArrayList<Dietitian> dietitians;
-    private ArrayList<Cardiologist> cardiologists;
 
+    /*Constructor Methods*/
     public Hospital(String name)
     {
         this.name = name;
-        this.neurosurgeons = new ArrayList<>();
-        this.dietitians = new ArrayList<>();
-        this.cardiologists = new ArrayList<>();
+
+        cardiologists = new ArrayList<Cardiologist>();
+        neurosurgeons = new ArrayList<Neurosurgeon>();
+        dietitians = new ArrayList<Dietitian>();
     }
+
+    /* Adding doctor */
     public void addDoctor(String name, int age, String dep)
     {
-       if (dep.equals("cardio"))
-       {
-            Cardiologist card = new Cardiologist(name, age);
-            cardiologists.add(card);
-       } 
-       else if (dep.equals("neuro"))
-       {
-            Neurosurgeon neu = new Neurosurgeon(name, age);
-            neurosurgeons.add(neu);
-       }
-       else if (dep.equals("diet"))
-       {
-            Dietitian diet = new Dietitian(name, age);
-            dietitians.add(diet);
-       }
-    }
-    public void bookAppointement(String name, int age, String doctype)
-    {
-        Patient newPatient = new Patient(name, age);
-        Doctor assignDoc = null;
-        if (doctype.equals("cardio"))
+        if(dep.equals("cardio"))
         {
-            if (cardiologists.size() == 0)
-            {
-                System.out.println("No cardiologists");
-                return;
-            }
-            int x = (int) (Math.random() * cardiologists.size());
-            assignDoc = cardiologists.get(x);
-        }
-        else if (doctype.equals("neuro"))
-        {
-            if (neurosurgeons.size() == 0)
-            {
-                System.out.println("No Neurosurgens");
-                return ;
-            }
-            int x = (int) (Math.random() * neurosurgeons.size());
-            assignDoc = neurosurgeons.get(x);
-        }
-        else if (doctype.equals("diet"))
-        {
-            if (dietitians.size() == 0)
-            {
-                System.out.println("No dietitians");
-                return ;
-            }
-            int x = (int) (Math.random() * dietitians.size());
-            assignDoc = dietitians.get(x);
-        }
-        else 
-        {
-            System.out.println("Invalide doctype");
-            return ;
-        }
-        System.out.println("Apointement set with Dr" + assignDoc.getName());
-    }
-    public void printAllCardiologists(){
-
-        if (cardiologists.size() == 0) 
-        {
-            System.out.println("No cardiologists are hired");
+            // Adding cardiologist
+            Cardiologist c = new Cardiologist(name, age);
+            cardiologists.add(c);
             return;
         }
-        for (Cardiologist c : cardiologists)
-            Driver.printDoctor(c);
-    }
-    public void printAllNeu()
-    {
-        if (neurosurgeons.size() == 0) 
+        if(dep.equals("neuro"))
         {
-            System.out.println("No Neurosurgeons are hired");
+            // Adding neurosurgeon
+            Neurosurgeon n = new Neurosurgeon(name, age);
+            neurosurgeons.add(n);
             return;
         }
-        for (Neurosurgeon n : neurosurgeons)
-            Driver.printDoctor(n);
-    }
-    public void printAllDiet()
-    {
-        if (dietitians.size() == 0) 
+        if(dep.equals("diet"))
         {
-            System.out.println("No Dietitians are hired");
+            // Adding dietitian
+            Dietitian d = new Dietitian(name, age);
+            dietitians.add(d);
             return;
         }
-        for (Dietitian d : dietitians)
-            Driver.printDoctor(d);
-    }
-    public String getHosName()
-    {
-        return this.name;
-    }
-    public ArrayList<Neurosurgeon> getNeursu()
-    {
-        return this.neurosurgeons;
-    }
-    public ArrayList<Dietitian> getDiet()
-    {
-        return this.dietitians;
-    }
-    public ArrayList<Cardiologist> getCard()
-    {
-        return this.cardiologists;
     }
 
+    /* Getters */
+    public String getName()
+    {
+        return name;
+    }
 
+    public ArrayList<Cardiologist> getCardiologists()
+    {
+        return cardiologists;
+    }
+
+    public ArrayList<Neurosurgeon> getNeurosurgeons()
+    {
+        return neurosurgeons;
+    }
+
+    public ArrayList<Dietitian> getDietitians()
+    {
+        return dietitians;
+    }
+
+    /* Printing patient */
+    public void printPatient(Patient p)
+    {
+        System.out.println(p);
+    }
+
+    /* Printing doctor - overloaded methods */
+    public void printDoctor(Cardiologist c)
+    {
+        System.out.println(c);
+    }
+
+    public void printDoctor(Neurosurgeon n)
+    {
+        System.out.println(n);
+    }
+
+    public void printDoctor(Dietitian d)
+    {
+        System.out.println(d);
+    }
+
+    /* Booking an appointment */
+    public void bookAppointment(String name, int age, String docType)
+    {
+        if (docType.equals("cardiologist"))
+        {
+            // Assining doctor
+            int rInt = (int)(Math.random() * cardiologists.size());
+            System.out.println("Appointment scheduled with "+ cardiologists.get(rInt).getName());
+            Patient p = new Patient(name, age, Patient.totalPatients+1);     // Creating a patient
+            return;
+        }
+
+        if (docType.equals("neurosurgeon"))
+        {
+            // Assining doctor
+            int rInt = (int)(Math.random() * neurosurgeons.size());
+            System.out.println("Appointment scheduled with "+ neurosurgeons.get(rInt).getName());
+            Patient p = new Patient(name, age, Patient.totalPatients+1);     // Creating a patient
+            return;
+        }
+
+        if (docType.equals("dietitian"))
+        {
+            // Assining doctor
+            int rInt = (int)(Math.random() * dietitians.size());
+            System.out.println("Appointment scheduled with "+ dietitians.get(rInt).getName());
+            Patient p = new Patient(name, age, Patient.totalPatients+1);     // Creating a patient
+            return;
+        }
+    }
 }

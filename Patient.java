@@ -1,26 +1,39 @@
-class Patient {
-    
-    private String name ;
+public class Patient
+{
+    /* Instance variables */
+    private String name;
     private int age;
     private int code;
-    private static int lastCode = 0;
+    public static int totalPatients; // maintain count of patients
 
-    public Patient(String name, int age)
+    /*Constructor Method*/
+    public Patient(String name, int age, int code)
     {
         this.name = name;
         this.age = age;
-        this.code = ++lastCode;
+        this.code = code;
+        totalPatients++; // increase with every patient getting registered
     }
+
+    /* Getters */
     public String getName()
     {
-        return this.name;
+        return name;
     }
+
     public int getAge()
     {
-        return this.age;
+        return age;
     }
+
     public int getCode()
     {
-        return this.code;
+        return code;
+    }
+
+    /* Overriding toString method */
+    public String toString()
+    {
+        return ("Patient:-\n\tName: "+ name+ "\n\tAge: "+age);
     }
 }

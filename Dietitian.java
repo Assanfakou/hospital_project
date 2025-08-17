@@ -1,26 +1,43 @@
-class Dietitian implements Doctor {
-
+public class Dietitian implements Doctor
+{
+    /* Instance variables */
     private String name;
-    private int age;
-    private boolean available;
+    private int age;  
+    private boolean availability;    
 
+    /*Constructor Method*/
     public Dietitian(String name, int age)
     {
         this.name = name;
         this.age = age;
-        this.available = true;
+        availability = true;
     }
+
+    /* Getters */
     public String getName()
     {
-        return this.name;
+        return name;
     }
+
     public int getAge()
     {
-        return this.age;
+        return age;
     }
+
     public boolean getAvailability()
     {
-        return this.available;
+        return availability;
     }
-    public void setAvailability(boolean available) { this.available = available; }
+
+    /* Overriding toString method */
+    public String toString()
+    {
+        return ("Diettitian:-\n\tName: "+ name+ "\n\tAge: "+age+"\n\tAvailable:"+availability);
+    }
+
+    /* Setter */
+    public void setAvailability(boolean status)
+    {
+        availability = status;
+    }
 }
