@@ -100,7 +100,7 @@ public class Hospital
             return;
         }
 
-        if (docType.equals("neurosurgeon"))
+        else if (docType.equals("neurosurgeon"))
         {
             // Assining doctor
             int rInt = (int)(Math.random() * neurosurgeons.size());
@@ -109,13 +109,18 @@ public class Hospital
             return;
         }
 
-        if (docType.equals("dietitian"))
+        else if (docType.equals("dietitian"))
         {
             // Assining doctor
             int rInt = (int)(Math.random() * dietitians.size());
             System.out.println("Appointment scheduled with "+ dietitians.get(rInt).getName());
             Patient p = new Patient(name, age, Patient.totalPatients+1);     // Creating a patient
             return;
+        }
+        else
+        {
+            System.out.println("the Doctor is not here");
+            return ;
         }
     }
 }

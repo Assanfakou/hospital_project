@@ -22,6 +22,6 @@ class Driver
         /* Booking an appointment */
         h.bookAppointment("Dave", 21, "neurosurgeon");
         h.bookAppointment("Kim", 19, "cardiologist");
-        h.bookAppointment("Sarah", 27, "dietitian");
+        h.bookAppointment("Sarah", 27, "dieti");
     }
 }
